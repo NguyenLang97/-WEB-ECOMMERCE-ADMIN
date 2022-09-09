@@ -1,0 +1,11 @@
+{
+    "admin": "行政",
+    "dashboard": "儀表板",
+    "customer": "顧客",
+    "products": "產品",
+    "orders": "訂單",
+    "delivery": "送貨",
+    "notifications": "通知",
+    "profile": "輪廓",
+    "logout": "登出"
+}

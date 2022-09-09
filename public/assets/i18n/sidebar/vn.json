@@ -1,0 +1,11 @@
+{
+    "admin": "Quản lý",
+    "dashboard": "Bảng điều khiển",
+    "customer": "Khách hàng",
+    "products": "Sản phẩm",
+    "orders": "Đặt hàng",
+    "delivery": "Vận chuyển",
+    "notifications": "Thông báo",
+    "profile": "Hồ sơ",
+    "logout": "Đăng xuất"
+}

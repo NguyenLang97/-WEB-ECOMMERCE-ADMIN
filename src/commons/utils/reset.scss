@@ -1,0 +1,66 @@
+/* reset default style */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* base style */
+
+body {
+    background-color: #f1f1f1;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+}
+
+h1,
+h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #212245;
+}
+
+h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+section {
+    padding: 0 0 60px 0px;
+}
+
+// antd
+.ant-row {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+.ant-col {
+    padding: 0;
+}
+.ant-col:first-child {
+    padding-left: 0;
+}
+
+.ant-col:last-child {
+    padding-right: 0;
+}
+
+@media only screen and (max-width: 768px) {
+    section {
+        padding: 40px 0px;
+    }
+
+    h1,
+    h2 {
+        font-size: 1.5rem;
+    }
+}

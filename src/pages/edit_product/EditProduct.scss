@@ -1,0 +1,9 @@
+@import '../../commons/variables/color.scss';
+.formInput {
+    width: 46%;
+    margin: 16px;
+    label {
+        color: $color-secondary;
+        font-weight: 700;
+    }
+}

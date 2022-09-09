@@ -1,0 +1,45 @@
+.comment {
+    box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 1px 3px 1px;
+    border-radius: 10px;
+    .comment__form-group {
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+        border-radius: 10px;
+        .comment__form-container {
+            .comment__form {
+                width: 100%;
+                background: transparent;
+                border: none;
+                textarea {
+                    width: 100%;
+                    padding: 7px 10px;
+                    border: none;
+                    border-radius: 10px;
+
+                    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+                }
+            }
+            .btn_comment {
+                height: 40px;
+                padding: 10px !important;
+                margin: 0 0 0 10px !important;
+                line-height: 16px !important;
+            }
+        }
+        .comment__review {
+            .comment__user-wrap {
+                .comment__user-img {
+                    width: 28px;
+                    height: 28px;
+                }
+                .comment__feedback-date {
+                    margin-left: 32px;
+                }
+            }
+            .comment__feedback-text {
+                margin-left: 20px;
+                border-radius: 6px;
+                box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 1px 3px 1px;
+            }
+        }
+    }
+}
