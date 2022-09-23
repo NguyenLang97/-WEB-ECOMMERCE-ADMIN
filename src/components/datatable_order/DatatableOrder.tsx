@@ -1,7 +1,7 @@
 import './datatable_order.scss'
 import { Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { collection, deleteDoc, doc, onSnapshot } from 'firebase/firestore'
+import { collection, deleteDoc, doc, onSnapshot, updateDoc } from 'firebase/firestore'
 import { db } from '../../firebase/firebase'
 import { Backdrop, Button, CircularProgress } from '@mui/material'
 import '../../style/pagination.scss'
@@ -14,6 +14,18 @@ import Divider from '@mui/material/Divider'
 import IconButton from '@mui/material/IconButton'
 import SearchIcon from '@mui/icons-material/Search'
 import ConvertStOrder from '../ConvertStOrder/ConvertStOrder'
+
+interface CartItemsState {
+    id: string
+    title: string
+    price: number
+    quantity: number
+    totalPrice: number
+    img: [{ img: string }]
+    totalAmountOrder: number
+    totalStock: number
+    total: number
+}
 
 const DatatableOrder = () => {
     const [data, setData] = useState([])
@@ -71,10 +83,26 @@ const DatatableOrder = () => {
     }
     console.log('data', search(data))
 
-    const handleDelete = async (id: any) => {
+    const handleDelete = async (item: any) => {
+        console.log('item', item)
+        const idDelItem = item.id
+
+        item.cartItems.map(async (item: CartItemsState) => {
+            console.log('soluong', Number(item.total))
+            console.log('soluong', Number(item.quantity))
+
+            try {
+                await updateDoc(doc(db, 'products', item.id as string), {
+                    total: Number(item.total) + Number(item.quantity),
+                })
+            } catch (err) {
+                console.log('loi')
+            }
+        })
+
         try {
-            await deleteDoc(doc(db, 'order', id))
-            setData(data.filter((item: any) => item.id !== id))
+            await deleteDoc(doc(db, 'order', idDelItem))
+            setData(data.filter((item: any) => item.id !== idDelItem))
         } catch (err) {
             console.log(err)
         }
@@ -84,16 +112,6 @@ const DatatableOrder = () => {
         setQuery(event.target.value)
     }
 
-    interface CartItemsState {
-        id: string
-        title: string
-        price: number
-        quantity: number
-        totalPrice: number
-        img: [{ img: string }]
-        totalAmountOrder: number
-        totalStock: number
-    }
     function setDate(unixTime: number) {
         const date = new Date(unixTime * 1000)
         // console.log(date.toLocaleDateString('en-US'))
@@ -185,7 +203,7 @@ const DatatableOrder = () => {
                                                 </Button>
                                             </Link>
 
-                                            <Button variant="outlined" color="error" className="m-l-8" onClick={() => handleDelete(item.id)}>
+                                            <Button variant="outlined" color="error" className="m-l-8" onClick={() => handleDelete(item)}>
                                                 Delete
                                             </Button>
                                         </td>
